@@ -1,16 +1,16 @@
 version: '3.8'
 
-
 services:
   backend:
     container_name: guido_backend
     restart: always
     image: guido-backend:1.0
     build:
-      context: ../src
-      dockerfile: ../docker/Dockerfile
+      context: ../src                # La cartella dove hai il codice backend (run.sh, requirements.txt, server.py, ecc.)
+      dockerfile: ../docker/Dockerfile # Il tuo Dockerfile backend
     ports:
-      - "5005:5005"
+      - "5005:5005"                  # Porta del backend, es. Flask, GUIdO services
+      - "5001:5000"                  # Porta TOAD API server se serve
     networks:
       - shared-network
 
@@ -19,10 +19,10 @@ services:
     restart: unless-stopped
     image: guido-frontend:1.0
     build:
-      context: ../frontend
-      dockerfile: ../frontend/Dockerfile
+      context: ../frontend            # Cartella del tuo frontend (React, Angular, ecc.)
+      dockerfile: ../frontend/Dockerfile # Dockerfile frontend
     ports:
-      - "3000:3000"
+      - "3000:3000"                  # Porta frontend
     networks:
       - shared-network
 

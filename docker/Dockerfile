@@ -51,7 +51,7 @@ RUN echo "import nltk;" > nltk_setup.py \
     && python3.8 nltk_setup.py
 
 
-ENV PAT='YOUR PAT'
+ENV PAT='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'
 ENV CSDETECTOR_URL_GETSMELLS='http://127.0.0.1:5001/getSmells'
 ENV GEODISPERSION_URL='http://127.0.0.1:5004/compute_std_dev'
 
@@ -65,3 +65,39 @@ RUN chmod +x /app/run.sh
 EXPOSE 5005
 # Esegue lo script quando il container viene eseguito
 CMD ["/app/run.sh"]
+
+FROM ubuntu:20.04
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Installazione pacchetti base
+RUN apt-get update && \
+    apt-get install -y build-essential software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3.8 python3-pip python3-venv python3-dev python3-wheel openjdk-8-jdk git libfreetype6-dev libpng-dev && \
+    apt-get clean
+
+# Variabili ambiente
+ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+ENV PATH="$JAVA_HOME/bin:$PATH"
+
+# Creazione cartelle
+RUN mkdir -p /app/TOAD
+WORKDIR /app/TOAD
+
+# Clona TOAD
+RUN git clone https://github.com/GuidaStefano/TOAD.git /app/TOAD
+
+# Installa dipendenze TOAD
+RUN python3.8 -m pip install --upgrade pip setuptools wheel
+RUN python3.8 -m pip install -r requirements.txt
+RUN python3.8 -m pip install Flask
+
+# Copia il server wrapper
+COPY server.py /app/TOAD/server.py
+
+# Espone la porta del servizio API
+EXPOSE 5000
+
+# Avvio server TOAD wrapper
+CMD ["python3.8", "server.py"]
