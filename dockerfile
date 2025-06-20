@@ -31,7 +31,6 @@ RUN pip install -r requirements.txt
 RUN pip install -r /app/TOAD/requirements.txt
 RUN pip install Flask
 
-EXPOSE 5000
 EXPOSE 5005
 
 CMD ["/app/run.sh"]

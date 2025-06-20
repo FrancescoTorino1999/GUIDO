@@ -5,6 +5,10 @@ import os
 import uuid
 import csv
 from urllib.parse import urlparse
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "/tmp/toad_inputs"
@@ -75,4 +79,4 @@ def get_result(task_id):
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5005)
