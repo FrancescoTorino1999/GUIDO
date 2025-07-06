@@ -1,4 +1,4 @@
-#TEST SYSTE6:  Repository: https://github.com/rubygems/bundler Data fine:  "" -> Error: The date must be today or a date in the past#
+#TC_GCP_2:  Repository: https://github.com/rubygems/bundler Data fine:  "" -> Error: The date must be today or a date in the past#
 
 import pytest
 from selenium import webdriver

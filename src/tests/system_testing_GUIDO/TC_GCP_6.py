@@ -1,4 +1,4 @@
-#TEST SYSTE9:  Repository:  https://github.com/FrancescoTorino1999/angular Data fine:  04/06/2025 -> Error: 'Invalid Repository: No milestones found (min. 1)!'#
+#TC_GCP_6:  Repository:  https://github.com/FrancescoTorino1999/angular Data fine:  04/06/2025 -> Error: 'Invalid Repository: No milestones found (min. 1)!'#
 
 import pytest
 import time
@@ -28,9 +28,9 @@ class TestSYSTE9():
     self.driver.find_element(By.CSS_SELECTOR, "#\\33 > span").click()
     self.driver.find_element(By.CSS_SELECTOR, ".insert-req").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").send_keys("https://github.com/composer/composer")
+    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").send_keys("https://github.com/netty/netty")
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2025-06-29")
+    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2019-01-01")
     self.driver.find_element(By.CSS_SELECTOR, ".btn-primary:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".modal-footer > .btn-primary").click()
     self.driver.find_element(By.CSS_SELECTOR, ".menu-inspect > .voceMenuText:nth-child(2) span").click()

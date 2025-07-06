@@ -1,4 +1,4 @@
-#TEST SYSTE1:  Repository: https://github.com/user Data fine: 29/06/2025 -> Error: Errore Please enter a valid GitHub repository URL (https://github.com/username/repo)#
+#TC_GCP_1:  Repository: https://github.com/user Data fine: 29/06/2025 -> Error: Errore Please enter a valid GitHub repository URL (https://github.com/username/repo)#
 
 import pytest
 from selenium import webdriver
@@ -26,10 +26,10 @@ class TestSYSTE1:
         actions.move_to_element(element).perform()
 
         self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").send_keys("https://github.com/user")
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").send_keys("https://www.google.it/")
 
         self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2025-06-29")
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2019-01-01")
 
         self.driver.find_element(By.CSS_SELECTOR, ".btn-primary:nth-child(1)").click()
 

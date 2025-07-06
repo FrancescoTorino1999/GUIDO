@@ -1,4 +1,4 @@
-#TEST SYSTE8:  Repository:  https://github.com/StefanoLambiase/GUIDO Data fine:  04/06/2025 -> Error: 'Invalid Repository: There must be at least 100 commits!'#
+#TC_GCP_4: Repository:  https://github.com/StefanoLambiase/GUIDO Data fine:  04/06/2025 -> Error: 'Invalid Repository: There must be at least 100 commits!'#
 
 import pytest
 import time
@@ -30,7 +30,7 @@ class TestSYSTE8():
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").send_keys("https://github.com/StefanoLambiase/GUIDO")
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2019-01-01")
+    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(2)").send_keys("2024-09-18")
     self.driver.find_element(By.CSS_SELECTOR, ".btn-primary:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".modal-footer > .btn-primary").click()
     self.driver.find_element(By.CSS_SELECTOR, ".menu-inspect > .voceMenuText:nth-child(2) span").click()
