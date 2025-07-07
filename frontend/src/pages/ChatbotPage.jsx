@@ -117,7 +117,7 @@ const ChatbotPage = () => {
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.type}`}>
             {message.type === 'bot' ? (
-              <div dangerouslySetInnerHTML={{ __html: message.text }} />
+              <div className='bot-msg' dangerouslySetInnerHTML={{ __html: message.text }} />
             ) : (
               <div>{message.text}</div>
             )}

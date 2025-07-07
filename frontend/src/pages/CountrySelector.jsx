@@ -253,7 +253,7 @@ const CountrySelector = () => {
       </div>
 
       <div className="center-button-container">
-        <button className="btn-primary" onClick={sendRequest}
+        <button className="btn-primary compute-button" onClick={sendRequest}
                 disabled={!selectedOptionMap.size || geoDistribution === null}>Compute
         </button>
       </div>

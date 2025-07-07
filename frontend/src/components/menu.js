@@ -20,14 +20,14 @@ function Menu() {
       </div>
 
       <nav className="contenitoreVociMenu">
-        <Link to={"/"} className="voceMenuText" onClick={() => addClassActive(2)}>
+        <Link to={"/"} className="voceMenuText cult-sec" onClick={() => addClassActive(2)}>
           <div className="voceMenu voceMenuActive" id="2">
             <MdPlace className="iconaMenu" />
             <span>Culture Inspector</span>
           </div>
         </Link>
 
-        <Link to={"/chatbot"} className="voceMenuText" onClick={() => addClassActive(1)}>
+        <Link to={"/chatbot"} className="voceMenuText chatbot-sec" onClick={() => addClassActive(1)}>
           <div className="voceMenu" id="1">
             <MdChat className="iconaMenu" />
             <span>Chatbot</span>
