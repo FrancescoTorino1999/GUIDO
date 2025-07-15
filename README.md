@@ -41,56 +41,30 @@ Follow these steps to create a Personal Access Token on GitHub:
 
 Now, you should also install **Docker**.
 
-### Docker Image pull ARM64
-
-If your machine is ARM64-based, you should opt for these steps:
-1. **Run the following command**:
-   ```bash
-   docker pull leopoldotodisco/guido-backend:latest
-2. **Run the command**: 
-    ```bash 
-    docker pull leopoldotodisco/guido-frontend:latest
-3. **Configure and start backend container backend via Docker Desktop**:
-	- Open Docker Desktop.
-	- Go to section **Images**.
-	- find the image **leopoldotodisco/guido-backend:1.0** and click on Play button.
-	- In **additional options**, add PAT in Env Variables and put the value of the PAT that you generated before.
-	- Set **5005** as port number.
-4. **Configure and start backend container backend via Docker Desktop**:
-	- In Docker Desktop, Go to section **Images**.
-	- find the image **leopoldotodisco/guido-frontend:1.0** and click on Play button.
-	- Set **3000** as port number.
-5. Start your brand new containers and **open localhost:3000 in your browser**
-
-### Docker Image pull x86
-
-If your machine is x86-based, you should opt for these steps:
-1. **Run the following command**:
-   ```bash
-   docker pull benedettoscala/guido-backend
-2. **Run the command**: 
-    ```bash 
-    docker pull benedettoscala/guido-frontend
-3. **Configure and start backend container backend via Docker Desktop**:
-	- Open Docker Desktop.
-	- Go to section **Images**.
-	- find the image **benedettoscala/guido-backend** and click on the Play button.
-	- In **additional options**, add PAT in Env Variables and put the value of the PAT that you generated before.
-	- Set **5005** as port number.
-4. **Configure and start backend container backend via Docker Desktop**:
-	- In Docker Desktop, Go to section **Images**.
-	- find the image **benedettoscala/guido-frontend** and click on Play button.
-	- Set **3000** as port number.
-5. Start your brand new containers and **open localhost:3000 in your browser**
-
 ### Local Docker Build
-1. Clone our Repository
-2. Go to folder "docker" and add your PAT in dockerfile
-3. Run the following commands:
- ```bash
-	docker-compose build
-	docker compose up 
-```
+
+1. **Clone our Repository**
+
+2. **[Optional – Windows Users] Check Line Endings of Shell Scripts**
+
+   ⚠️ If you're using **Windows**, ensure that the `run.sh` (and any other `.sh` scripts) use **LF (Unix-style)** line endings instead of **CRLF (Windows-style)**. CRLF endings can cause errors when running shell scripts inside Docker containers.
+
+   **To fix this:**
+   - If using **Visual Studio Code**:
+     - Open the `.sh` file.
+     - Click on `CRLF` in the bottom-right corner and change it to `LF`.
+   - Or run this command using **Git Bash** or **WSL**:
+     ```bash
+     dos2unix run.sh
+     ```
+
+3. **Go to the folder `docker` and add your PAT in the Dockerfile**
+
+4. **Run the following commands:**
+   ```bash
+   docker-compose build
+   docker compose up 
+
 5. **Open localhost:3000 in your browser**
 
 ## Other Tools
