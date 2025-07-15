@@ -8,64 +8,87 @@ GUIDO is based on a previous tool for the detection of community smells, **CADOC
 
 The *documents* folder contains various artifacts that facilitate understanding GUIDO, including instructional videos on its usage.
 
-## How to Install The Tool
+## How to Install the Tool
 
-In the following section, we report the main steps for installing GUIDO on your machine.
+Follow the steps below to install and run **GUIDO** locally on your machine.
 
-### Preliminar: Generate a GitHub PAT
+---
 
-Follow these steps to create a Personal Access Token on GitHub:
+### 🛠️ 1. Prerequisites
 
-1. **Navigate to GitHub:**
-   - Login into your GitHub account.
+Before installing, make sure you have the following installed on your system:
 
-2. **Access Settings:**
-   - Click on your profile picture at the top right corner, and select **Settings** from the dropdown menu.
+- [Docker](https://www.docker.com/)
+- A **GitHub Personal Access Token (PAT)**
 
-3. **Personal Access Tokens:**
-   - In the left sidebar, click on **Developer settings**.
-   - Then click on **Personal access tokens**.
-   - Select **Tokens (classic)**.
+#### 🔐 Generate a GitHub PAT
 
-4. **Set Expiration:**
-   - Choose an expiration for your token. You can select a specific duration or opt for **No expiration**.
+To interact with GitHub, GUIDO requires a Personal Access Token (PAT):
 
-5. **Set Permissions:**
-   - Assign the necessary permissions for your token. Typically, you might need to enable permissions such as `repo`, `write:discuss`, `project`, and `user`.
+1. **Log in** to your GitHub account.
+2. Go to **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**.
+3. Click **Generate new token** and configure:
+   - **Expiration**: Choose a duration or select "No expiration".
+   - **Permissions**: At minimum, enable:
+     - `repo`
+     - `write:discussion`
+     - `project`
+     - `user`
+4. Click **Generate token** and **copy it immediately**. You won’t be able to see it again later.
 
-6. **Generate Token:**
-   - Once you've configured the settings, click on **Generate token**.
-   - You will see a string representing your new Personal Access Token. **Copy and securely store this token**—it's important!
+> ⚠️ **Keep your PAT secure** – treat it like a password and never share it publicly.
 
-**IMPORTANT**: Remember, your Personal Access Token is like a password—keep it secure and do not share it publicly.
+---
 
-Now, you should also install **Docker**.
+### 🧪 2. Clone the Repository
 
-### Local Docker Build
+```bash
+git clone https://github.com/FrancescoTorino1999/GUIDO.git
+```
 
-1. **Clone our Repository**
+---
 
-2. **[Optional – Windows Users] Check Line Endings of Shell Scripts**
+### 💡 3. [Optional – Windows Users] Convert Shell Scripts to LF
 
-   ⚠️ If you're using **Windows**, ensure that the `run.sh` (and any other `.sh` scripts) use **LF (Unix-style)** line endings instead of **CRLF (Windows-style)**. CRLF endings can cause errors when running shell scripts inside Docker containers.
+If you're using **Windows**, make sure shell scripts (like `run.sh`) use **LF (Unix-style)** line endings.
 
-   **To fix this:**
-   - If using **Visual Studio Code**:
-     - Open the `.sh` file.
-     - Click on `CRLF` in the bottom-right corner and change it to `LF`.
-   - Or run this command using **Git Bash** or **WSL**:
-     ```bash
-     dos2unix run.sh
-     ```
+> CRLF (Windows-style) endings can cause errors when running scripts in Docker.
 
-3. **Go to the folder `docker` and add your PAT in the Dockerfile**
+#### ✅ To fix line endings:
 
-4. **Run the following commands:**
-   ```bash
-   docker-compose build
-   docker compose up 
+- **Using VS Code**:
+  - Open the `.sh` file.
+  - Click on `CRLF` in the bottom-right corner and switch it to `LF`.
 
-5. **Open localhost:3000 in your browser**
+- **Or via terminal**:
+  ```bash
+  dos2unix run.sh
+  ```
+
+---
+
+### 🐳 4. Build and Run with Docker
+
+1. Navigate to the `docker` folder.
+2. Open the `Dockerfile` and **add your GitHub PAT** where indicated.
+3. Build and run the container:
+
+```bash
+docker-compose build
+docker compose up
+```
+
+---
+
+### 🌐 5. Access the Application
+
+Once the container is running, open your browser and go to:
+
+```
+http://localhost:3000
+```
+
+You should now see the GUIDO interface running locally.
 
 ## Other Tools
 
